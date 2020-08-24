@@ -93,6 +93,17 @@ io.on("connection", (socket)=>{
       // 入室通知
       io.to(socket.id).emit("member-join", data);
       socket.broadcast.emit("member-join", {name:data.name, token:MEMBER[socket.id].count});
+      socket.on("post", (msg)=>{
+        msg.text=msg.text.replace(/ぴえん/g,"🥺")
+                         .replace(/うーん/g,"🤔")
+                         .replace(/まっする/g,"💪('ω'💪)")
+                         .replace(/マッスル/g,"💪('ω'💪)")
+                         .replace(/天使/g,"😇")
+                         .replace(/てんし/g,"😇")
+                         .replace(/寿司/g,"🍣")
+                         .replace(/すし/g,"🍣")
+        io.emit("member-post", msg);
+      });
     }
     //--------------------------
     // トークンが誤っていた場合
