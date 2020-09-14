@@ -69,7 +69,7 @@
 }
 
 .emojilist{
-  width: 150px;
+  width: 600px;
   height: 300px;
   overflow-y: scroll;
   list-style-image: url(circle-solid.svg);
